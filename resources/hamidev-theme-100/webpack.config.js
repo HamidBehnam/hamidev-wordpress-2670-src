@@ -55,7 +55,7 @@ module.exports = {
         publicPath: "/wp-content/themes/hamidev-theme-100/resources/dist/",
         filename: '[name].bundle.js',
         chunkFilename: '[name].bundle.js',
-        path: path.resolve(__dirname, '../../app/public/wp-content/themes/hamidev-theme-100/resources/dist'),
+        path: path.resolve(__dirname, '../../public/wp-content/themes/hamidev-theme-100/resources/dist'),
     },
     stats: {
         colors: true
