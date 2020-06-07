@@ -1,0 +1,10 @@
+@import url("./footer.scss");
+@import url("./header.scss");
+
+body {
+  font-size: 20px;
+
+  .loader-button-container {
+    padding: 100px;
+  }
+}
