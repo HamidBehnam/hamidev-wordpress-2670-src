@@ -1,4 +1,4 @@
-#Setup the local machine
+Setup the local machine
 ---------------------------
 - Download and Install the [Local by Flywheel app](https://getflywheel.com/layout/local-by-flywheel/) to manage the wordpress local sites.
 - Clone the repository: https://github.com/HamidBehnam/hamidev-wordpress-100.git
@@ -8,3 +8,4 @@
 - Go to the app/resources/[theme-name]
 - run `npm install`
 - `npm run build:dev:watch:progress` to generate the `dist` content
+- Since the missing files are added to the local site, remove the cloned version.
