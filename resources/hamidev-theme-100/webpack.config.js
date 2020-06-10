@@ -3,7 +3,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        global: './src/ts/global/global.ts'
+        global: './src/ts/global/eager-load/global.ts',
+        page: './src/ts/page/eager-load/page.ts',
+        single: './src/ts/single/eager-load/single.ts'
     },
     devtool: 'inline-source-map',
     module: {

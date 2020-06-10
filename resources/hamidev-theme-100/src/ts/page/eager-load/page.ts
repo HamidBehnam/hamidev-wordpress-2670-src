@@ -1,4 +1,4 @@
-import "../../styles/page/page.scss";
+import "../../../styles/page/eager-load/page.scss";
 
 class Something {
     constructor(private testField: string, public testCode: string) {
@@ -24,3 +24,7 @@ somethingTest.doSomething();
 export const processor = (param1: string, param2: number) => {
     console.log("the processor's result: ", param1, param2);
 };
+
+setTimeout(async () => {
+    await import(/* webpackChunkName: "page-lazy" */ '../lazy-load/page');
+}, 5000)
