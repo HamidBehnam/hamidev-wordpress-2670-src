@@ -10,9 +10,6 @@ add_action("wp_enqueue_scripts", "load_internal_resources");
 ?>
 
 <div class="single-content-container">
-    <div class="loader-button-container">
-        <button id="single-module-loader">Lazy Loading the single module, check the console!</button>
-    </div>
     <small>Here's more information about the post:</small>
 
     <div>

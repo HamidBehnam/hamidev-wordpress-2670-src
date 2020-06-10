@@ -6,20 +6,18 @@ const doSomething = () => {
 
 doSomething();
 
-window.onload = () => {
-    const pageModuleLoaderButton = document.getElementById("page-module-loader");
-    const singleModuleLoaderButton = document.getElementById("single-module-loader");
+window.onload = async () => {
+    const isPage: boolean = Boolean(document.getElementsByClassName('page-template-default').length);
+    const isPost: boolean = Boolean(document.getElementsByClassName('post-template-default').length);
 
-    if (pageModuleLoaderButton) {
-        pageModuleLoaderButton.addEventListener("click", async () => {
-            const theResult = await import(/* webpackChunkName: "page" */ '../page/page');
-            theResult.processor("Hamid", 317);
-        });
+    if (isPost) {
+        console.log("this is the post content;");
+        await import(/* webpackChunkName: "single" */ '../single/single');
     }
 
-    if (singleModuleLoaderButton) {
-        singleModuleLoaderButton.addEventListener("click", async () => {
-            await import(/* webpackChunkName: "single" */ '../single/single');
-        });
+    if (isPage) {
+        console.log("this is the page content;");
+        const theResult = await import(/* webpackChunkName: "page" */ '../page/page');
+        theResult.processor("Hamid", 317);
     }
 };

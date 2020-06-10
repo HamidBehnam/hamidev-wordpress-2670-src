@@ -9,7 +9,7 @@ the_post(); ?>
 
     if ($parentID) { ?>
 
-    <ul class="page-internal-navigation">
+    <ul class="page-breadcrumb">
         <li><?php the_title() ?></li>
 
     <?php
@@ -25,9 +25,55 @@ the_post(); ?>
     ?>
     </ul>
 
-    <div class="loader-button-container">
-        <button id="page-module-loader">Lazy Loading the page module, check the console!</button>
-    </div>
+
+    <?php
+
+    echo '<h3>2 Ways to show the internal pages:</h3>';
+    echo '<h4>using the pre-generated elements:</h4>';
+    $internalPages = wp_list_pages([
+        'title_li' => null,
+        'child_of' => get_the_ID(),
+        'echo' => 0,
+    ]);
+
+    if ($internalPages) { ?>
+
+        <div class="internal-pages-container">
+            <div class="internal-pages-header">***Internal Pages for <?php the_title() ?>***</div>
+            <div class="internal-pages-items">
+                <?php echo $internalPages; ?>
+            </div>
+        </div>
+
+    <?php
+    }
+
+    echo '<h4>manually generating the elements:</h4>';
+    $internalPagesRaw = get_pages([
+        'child_of' => get_the_ID()
+    ]);
+
+    if (count($internalPagesRaw)) {
+
+        echo '<div>***Internal Pages for' . get_the_title() . '***</div>';
+        foreach ($internalPagesRaw as $index=>$page) {
+            echo '<div>' . $page->post_title . ' - index: ' . $index. '</div>';
+        }
+
+        echo '<div>***Internal Pages for' . get_the_title() . '***</div>';
+        foreach ($internalPagesRaw as $page) { ?>
+
+            <div>
+                <a href="<?php echo get_page_link($page->ID) ?>">
+                    <?php echo $page->post_title ?>
+                </a>
+            </div>
+
+        <?php
+        }
+    }
+    ?>
+
     <h1><?php the_title(); ?></h1>
     <div><?php the_content(); ?></div>
 </section>
