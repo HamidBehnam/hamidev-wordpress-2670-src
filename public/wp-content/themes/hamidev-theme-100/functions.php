@@ -22,6 +22,8 @@ add_action('wp_enqueue_scripts', 'load_resources');
 
 function show_page_title() {
     add_theme_support('title-tag');
+    register_nav_menu('headerMenuLocation', 'Header Menu Location');
+    register_nav_menu('footerMenuLocation', 'Footer Menu Location');
 }
 
 add_action('after_setup_theme', 'show_page_title');

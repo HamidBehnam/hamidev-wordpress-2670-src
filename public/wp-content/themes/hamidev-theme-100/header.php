@@ -10,6 +10,12 @@
 <section class="header-container">
     <h6>This is going to be the header section!</h6>
     <div>
+<!--        TODO: Dynamic Wordpress menu -->
+        <?php wp_nav_menu([
+                'theme_location' => 'headerMenuLocation'
+        ]) ?>
+
+<!--        TODO: Static custom menu-->
         <ul class="header-navigation">
             <li><a href="<?php echo site_url(); ?>">Home</a></li>
             <li><a href="<?php echo site_url('/hamidev-the-first-page'); ?>">First Page</a></li>
