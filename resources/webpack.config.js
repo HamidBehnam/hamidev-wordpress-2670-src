@@ -54,10 +54,10 @@ module.exports = {
         extensions: [ '.tsx', '.ts', '.js' ],
     },
     output: {
-        publicPath: "/wp-content/themes/hamidev-theme-100/resources/dist/",
+        // publicPath: "/resources/dist/",
         filename: '[name].bundle.js',
         chunkFilename: '[name].bundle.js',
-        path: path.resolve(__dirname, '../../public/wp-content/themes/hamidev-theme-100/resources/dist'),
+        path: path.resolve(__dirname, './dist'),
     },
     stats: {
         colors: true
