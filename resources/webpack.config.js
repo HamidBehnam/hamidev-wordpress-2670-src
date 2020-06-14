@@ -54,7 +54,8 @@ module.exports = {
         extensions: [ '.tsx', '.ts', '.js' ],
     },
     output: {
-        // publicPath: "/resources/dist/",
+        //publicPath is needed to be able to load the dynamic modules properly
+        publicPath: '/wp-content/themes/hamidev-wordpress-100/resources/dist/',
         filename: '[name].bundle.js',
         chunkFilename: '[name].bundle.js',
         path: path.resolve(__dirname, './dist'),
