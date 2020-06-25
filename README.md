@@ -14,3 +14,21 @@ Setup the local machine
 - run `npm run build:dev:watch:progress` to generate the `dist` content
 - Log in to the admin portal: `http://[the-site-url]/login`
 - Activate the theme in the appearance section
+
+Backup Database
+-------------------------------
+- In the Local By Flywheel app select the Database tab
+- Click on the Open Adminer
+- Select Import then select the output type, ex. Save, ...
+- Click on the Export button.
+
+Restore the Database
+--------------------------
+- In the Local By Flywheel app select the Database tab
+- Click on the Open Adminer
+- Before restoring the database click on `select wp_options`
+- Copy the value for these 2 fields: `siteurl` and `home`
+- Click on Import and select the backup file.
+- Click on the Execute button
+- Click on `select wp_options` again and reset the values that you copied before importing the database
+- Go to the Local By Flywheel app shutdown the server and start it again.
