@@ -1,4 +1,4 @@
 .idea
 *node_modules
-*dist
+**/themes/**/resources/dist
 /sql/local.sql
