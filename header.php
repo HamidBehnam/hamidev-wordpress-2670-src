@@ -18,7 +18,7 @@
 <!--        TODO: Static custom menu-->
         <ul class="header-navigation">
             <li><a href="<?php echo site_url(); ?>">Home</a></li>
-            <li><a href="<?php echo site_url('/hamidev-the-first-page'); ?>">First Page</a></li>
+            <li><a href="<?php echo site_url('/first-page'); ?>">First Page</a></li>
             <li><a href="<?php echo site_url('/about-us'); ?>">About Us</a></li>
             <li><a href="<?php echo site_url('/privacy-policy-2'); ?>">Privacy Policy</a></li>
         </ul>

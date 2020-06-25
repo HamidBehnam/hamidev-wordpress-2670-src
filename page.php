@@ -28,15 +28,15 @@ the_post(); ?>
 
     <?php
 
-    echo '<h3>2 Ways to show the internal pages:</h3>';
-    echo '<h4>using the pre-generated elements:</h4>';
     $internalPages = wp_list_pages([
         'title_li' => null,
         'child_of' => get_the_ID(),
         'echo' => 0,
     ]);
 
-    if ($internalPages) { ?>
+    if ($internalPages) {
+        echo '<h3>2 Ways to show the internal pages:</h3>';
+        echo '<h4>using the pre-generated elements:</h4>'; ?>
 
         <div class="internal-pages-container">
             <div class="internal-pages-header">***Internal Pages for <?php the_title() ?>***</div>
@@ -48,14 +48,14 @@ the_post(); ?>
     <?php
     }
 
-    echo '<h4>manually generating the elements:</h4>';
     $internalPagesRaw = get_pages([
         'child_of' => get_the_ID()
     ]);
 
     if (count($internalPagesRaw)) {
-
+        echo '<h4>manually generating the elements:</h4>';
         echo '<div>***Internal Pages for' . get_the_title() . '***</div>';
+
         foreach ($internalPagesRaw as $index=>$page) {
             echo '<div>' . $page->post_title . ' - index: ' . $index. '</div>';
         }
