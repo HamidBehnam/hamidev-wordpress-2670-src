@@ -1,6 +1,6 @@
 <?php
 
-function load_resources()
+function wp_enqueue_scripts_handler()
 {
     wp_enqueue_style('global_styles', get_theme_file_uri('/resources/dist/global.bundle.css'));
     wp_enqueue_script('global_scripts', get_theme_file_uri('/resources/dist/global.bundle.js'));
@@ -18,13 +18,11 @@ function load_resources()
     }
 }
 
-add_action('wp_enqueue_scripts', 'load_resources');
-
-function show_page_title() {
+function after_setup_theme_handler() {
     add_theme_support('title-tag');
     register_nav_menu('headerMenuLocation', 'Header Menu Location');
     register_nav_menu('footerMenuLocation', 'Footer Menu Location');
 }
 
-add_action('after_setup_theme', 'show_page_title');
-
+add_action('wp_enqueue_scripts', 'wp_enqueue_scripts_handler');
+add_action('after_setup_theme', 'after_setup_theme_handler');
