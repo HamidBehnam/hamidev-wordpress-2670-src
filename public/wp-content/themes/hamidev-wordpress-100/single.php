@@ -1,12 +1,6 @@
 <?php
 get_header();
 the_post();
-
-function load_internal_resources() {
-    wp_enqueue_style("hamidev-single-styles", get_theme_file_uri("/resources/dist/single.css"));
-}
-
-add_action("wp_enqueue_scripts", "load_internal_resources");
 ?>
 
 <div class="single-content-container">

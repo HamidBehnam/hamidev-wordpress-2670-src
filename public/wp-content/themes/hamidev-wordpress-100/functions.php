@@ -7,7 +7,8 @@ function wp_enqueue_scripts_handler()
 
     $bodyClasses = get_body_class();
 
-    if (in_array('post-template-default', $bodyClasses)) {
+    if (in_array('post-template-default', $bodyClasses) ||
+        in_array('organization-template-default', $bodyClasses)) {
         wp_enqueue_style('single_styles', get_theme_file_uri('/resources/dist/single.bundle.css'));
         wp_enqueue_script('single_scripts', get_theme_file_uri('/resources/dist/single.bundle.js'));
     }

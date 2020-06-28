@@ -10,7 +10,11 @@ function init_handler() {
             'all_items' => 'All Organizations',
             'singular' => 'Organization'
         ],
-        'menu_icon' => 'dashicons-grid-view'
+        'menu_icon' => 'dashicons-grid-view',
+        'has_archive' => true,
+        'rewrite' => [
+            'slug' => 'organizations'
+        ]
     ]);
 }
 
