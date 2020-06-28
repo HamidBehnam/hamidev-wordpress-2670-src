@@ -14,7 +14,13 @@ function init_handler() {
         'has_archive' => true,
         'rewrite' => [
             'slug' => 'organizations'
-        ]
+        ],
+        'supports' => [
+            'title',
+            'editor',
+            'excerpt'
+        ],
+        'show_in_rest' => true
     ]);
 }
 
