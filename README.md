@@ -2,13 +2,11 @@ Setup the local machine
 ---------------------------
 - Download and Install the [Local by Flywheel app](https://getflywheel.com/layout/local-by-flywheel/) to manage the wordpress local sites.
 - Create a new site in Local by Flywheel app.
-- go to ~/Local Sites/[site-name]/app
-- delete the public directory - you might need to stop the server before deleting the public directory
-- move whatever else is in the app folder to somewhere else outside of the app folder
-- app folder should be empty at this point
-- in terminal go to the app folder
+- go to ~/Local Sites/[site-name]/app/public/wp-content/
+- delete the entire content of the wp-content directory - you might need to stop the server before deleting the public directory
+- wp-content folder should be empty at this point
+- in terminal go to the wp-content folder
 - Clone the repository without creating the parent directory (add dot): `git clone https://github.com/HamidBehnam/hamidev-wordpress-100.git .`
-- move back those items that you temporarily moved from the app folder
 - Go to app/public/wp-content/themes/[theme-name]/resources
 - run `npm install`
 - run `npm run build:dev:watch:progress` to generate the `dist` content
