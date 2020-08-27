@@ -20,6 +20,7 @@ ls'''
             sh '''
             cd themes/${THEME_NAME}/resources
             rm -rf node_modules
+            rm -rf ${DEST_PROJECT_NAME}
             rm -rf dist'''
           }
         }
