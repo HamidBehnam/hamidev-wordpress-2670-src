@@ -56,16 +56,18 @@ ls'''
         }
       }
       steps {
-        sh '''ls
-#make sure the repository does have the related branch. you might need to manually create all the branches needed for the jenkins like dev, qa.
-git clone --single-branch --branch ${BRANCH_NAME} https://${DEST_REPO}
-cp -a dist/. ${DEST_PROJECT_NAME}/
-cd ${DEST_PROJECT_NAME}
-git config user.name "${GITHUB_CRED_USR}"
-git config user.email "${GITHUB_USER_EMAIL}"
-git add .
-git diff --quiet && git diff --staged --quiet || git commit -am "adding the build files to the dest repo"
-git push https://${GITHUB_CRED_USR}:${GITHUB_CRED_PSW}@${DEST_REPO}'''
+        sh '''
+        cd themes/${THEME_NAME}/resources
+        ls
+        #make sure the repository does have the related branch. you might need to manually create all the branches needed for the jenkins like dev, qa.
+        git clone --single-branch --branch ${BRANCH_NAME} https://${DEST_REPO}
+        cp -a dist/. ${DEST_PROJECT_NAME}/
+        cd ${DEST_PROJECT_NAME}
+        git config user.name "${GITHUB_CRED_USR}"
+        git config user.email "${GITHUB_USER_EMAIL}"
+        git add .
+        git diff --quiet && git diff --staged --quiet || git commit -am "adding the build files to the dest repo"
+        git push https://${GITHUB_CRED_USR}:${GITHUB_CRED_PSW}@${DEST_REPO}'''
 
       }
     }
