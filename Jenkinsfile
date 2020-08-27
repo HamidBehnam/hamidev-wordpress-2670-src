@@ -79,7 +79,7 @@ ls'''
           project_category=${PROJECT_CATEGORY}
           project_path=${PROJECT_PATH}
           deployment_branch=${BRANCH_NAME}
-          dest_repo=${DEST_REPO}
+          wordpress_repo=${WORDPRESS_REPO}
           domain_name=${DOMAIN_NAME}
           """,
           shouldFailTheBuild: true,
@@ -101,6 +101,7 @@ ls'''
     SRC_PROJECT_NAME = 'hamidev-wordpress-100'
     DEST_PROJECT_NAME = 'hamidev-wordpress-100-dest'
     DEST_REPO = 'github.com/HamidBehnam/hamidev-wordpress-100-dest.git'
+    WORDPRESS_REPO = 'github.com/HamidBehnam/hamidev-wordpress-100.git'
     PROJECT_CATEGORY = 'wordpress'
     PROJECT_PATH = '100'
   }
