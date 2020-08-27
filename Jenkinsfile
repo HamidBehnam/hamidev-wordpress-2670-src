@@ -36,12 +36,14 @@ ls'''
 
     stage('Build') {
       steps {
-        sh '''if [ ${BRANCH_NAME} = "master" ] || [ ${BRANCH_NAME} = "qa" ]
-              then
-              npm run build:dev:progress
-              else
-              npm run build:dev:progress
-              fi'''
+        sh '''
+        cd themes/${THEME_NAME}/resources
+        if [ ${BRANCH_NAME} = "master" ] || [ ${BRANCH_NAME} = "qa" ]
+        then
+        npm run build:dev:progress
+        else
+        npm run build:dev:progress
+        fi'''
       }
     }
 
