@@ -70,6 +70,22 @@ ls'''
         git diff --quiet && git diff --staged --quiet || git commit -am "adding the build files to the dest repo"
         git push https://${GITHUB_CRED_USR}:${GITHUB_CRED_PSW}@${DEST_REPO}'''
 
+        script {
+          step([$class: "RundeckNotifier",
+          includeRundeckLogs: true,
+          jobId: "${RUNDECK_JOB_ID}",
+          rundeckInstance: "${RUNDECK_INSTANCE_NAME}",
+          options: """
+          project_category=${PROJECT_CATEGORY}
+          project_path=${PROJECT_PATH}
+          deployment_branch=${BRANCH_NAME}
+          dest_repo=${DEST_REPO}
+          domain_name=${DOMAIN_NAME}
+          """,
+          shouldFailTheBuild: true,
+          shouldWaitForRundeckJob: true,
+          tailLog: true])
+        }
       }
     }
 
@@ -81,7 +97,7 @@ ls'''
     GITHUB_USER_EMAIL = credentials('github_user_email')
     DOMAIN_NAME = credentials('domain_name')
     RUNDECK_INSTANCE_NAME = credentials('rundeck_instance_name')
-    RUNDECK_JOB_ID = credentials('angular_deployment_v1_id')
+    RUNDECK_JOB_ID = credentials('wordpress_deployment_v1_id')
     SRC_PROJECT_NAME = 'hamidev-wordpress-100'
     DEST_PROJECT_NAME = 'hamidev-wordpress-100-dest'
     DEST_REPO = 'github.com/HamidBehnam/hamidev-wordpress-100-dest.git'
