@@ -28,7 +28,9 @@ ls'''
 
     stage('Dependencies Installation') {
       steps {
-        sh 'npm install'
+        sh '''
+        cd themes/${THEME_NAME}/resources
+        npm install'''
       }
     }
 
