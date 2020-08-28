@@ -69,7 +69,18 @@ ls'''
         git add .
         git diff --quiet && git diff --staged --quiet || git commit -am "adding the build files to the dest repo"
         git push https://${GITHUB_CRED_USR}:${GITHUB_CRED_PSW}@${DEST_REPO}'''
+      }
+    }
 
+    stage('Deployment') {
+      when {
+        anyOf {
+          branch 'dev';
+          branch 'qa';
+          branch 'master';
+        }
+      }
+      steps {
         script {
           step([$class: "RundeckNotifier",
           includeRundeckLogs: true,
