@@ -41,9 +41,9 @@ ls'''
         cd themes/${THEME_NAME}/resources
         if [ ${BRANCH_NAME} = "master" ] || [ ${BRANCH_NAME} = "qa" ]
         then
-        npm run build:dev:progress
+        npm run build:dev:progress -- --env.publicPath=/${PROJECT_CATEGORY}/${PROJECT_PATH}/
         else
-        npm run build:dev:progress
+        npm run build:dev:progress -- --env.publicPath=/${PROJECT_CATEGORY}/${PROJECT_PATH}/
         fi'''
       }
     }
