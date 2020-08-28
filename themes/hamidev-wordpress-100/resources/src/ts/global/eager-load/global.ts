@@ -1,4 +1,5 @@
 import '../../../styles/global/eager-load/global.scss';
+import './global-eager-util';
 
 const doSomething = () => {
     console.log("this is the doSomething method!, in global.ts file!!");

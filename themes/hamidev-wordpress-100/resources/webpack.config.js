@@ -2,15 +2,15 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env = {}) => {
-    const publicPath = env.publicPath || '/'
 
-    return {
+    const config = {
         entry: {
             global: './src/ts/global/eager-load/global.ts',
             page: './src/ts/page/eager-load/page.ts',
             single: './src/ts/single/eager-load/single.ts'
         },
-        devtool: 'inline-source-map',
+        mode: env.mode || 'production',
+        devtool: env.devtool || '',
         module: {
             rules: [
                 {
@@ -24,7 +24,7 @@ module.exports = (env = {}) => {
                         {
                             loader: MiniCssExtractPlugin.loader,
                             options: {
-                                hmr: process.env.NODE_ENV === 'development',
+                                hmr: env.mode === 'development',
                                 // if hmr does not work, this is a forceful method.
                                 reloadAll: true,
                             }
@@ -58,7 +58,7 @@ module.exports = (env = {}) => {
         },
         output: {
             //publicPath is needed to be able to load the dynamic modules properly
-            publicPath: publicPath + 'wp-content/themes/hamidev-wordpress-100/resources/dist/',
+            publicPath: env.publicPath || '/' + 'wp-content/themes/hamidev-wordpress-100/resources/dist/',
             filename: '[name].bundle.js',
             chunkFilename: '[name].bundle.js',
             path: path.resolve(__dirname, './dist'),
@@ -67,4 +67,6 @@ module.exports = (env = {}) => {
             colors: true
         }
     };
+
+    return config;
 };

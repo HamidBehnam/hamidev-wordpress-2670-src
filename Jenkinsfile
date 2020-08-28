@@ -43,7 +43,7 @@ ls'''
         then
         npm run build:dev:progress -- --env.publicPath=/${PROJECT_CATEGORY}/${PROJECT_PATH}/
         else
-        npm run build:dev:progress -- --env.publicPath=/${PROJECT_CATEGORY}/${PROJECT_PATH}/
+        npm run build:dev:progress -- --env.publicPath=/${PROJECT_CATEGORY}/${PROJECT_PATH}/ --env.mode=development --env.devtool=inline-source-map
         fi'''
       }
     }
