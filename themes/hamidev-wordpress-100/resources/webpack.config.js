@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env = {}) => {
+    const publicPath = env.publicPath || '/';
 
     const config = {
         entry: {
@@ -58,7 +59,7 @@ module.exports = (env = {}) => {
         },
         output: {
             //publicPath is needed to be able to load the dynamic modules properly
-            publicPath: env.publicPath || '/' + 'wp-content/themes/hamidev-wordpress-100/resources/dist/',
+            publicPath: publicPath + 'wp-content/themes/hamidev-wordpress-100/resources/dist/',
             filename: '[name].bundle.js',
             chunkFilename: '[name].bundle.js',
             path: path.resolve(__dirname, './dist'),
