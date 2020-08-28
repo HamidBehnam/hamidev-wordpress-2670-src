@@ -87,11 +87,13 @@ ls'''
           jobId: "${RUNDECK_JOB_ID}",
           rundeckInstance: "${RUNDECK_INSTANCE_NAME}",
           options: """
+          domain_name=${DOMAIN_NAME}
           project_category=${PROJECT_CATEGORY}
           project_path=${PROJECT_PATH}
           deployment_branch=${BRANCH_NAME}
           wordpress_repo=${WORDPRESS_REPO}
-          domain_name=${DOMAIN_NAME}
+          dest_repo=${DEST_REPO}
+          theme_name=${THEME_NAME}
           """,
           shouldFailTheBuild: true,
           shouldWaitForRundeckJob: true,
@@ -103,7 +105,6 @@ ls'''
   }
   environment {
     HOME = '.'
-    THEME_NAME = 'hamidev-wordpress-100'
     GITHUB_CRED = credentials('github_cred')
     GITHUB_USER_EMAIL = credentials('github_user_email')
     DOMAIN_NAME = credentials('domain_name')
@@ -115,5 +116,6 @@ ls'''
     WORDPRESS_REPO = 'github.com/HamidBehnam/hamidev-wordpress-100.git'
     PROJECT_CATEGORY = 'wordpress'
     PROJECT_PATH = '100'
+    THEME_NAME = 'hamidev-wordpress-100'
   }
 }
