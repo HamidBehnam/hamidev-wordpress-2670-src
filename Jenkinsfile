@@ -8,13 +8,19 @@ pipeline {
 
   }
   stages {
+    stage('shared lib test') {
+        steps {
+            sh'''
+            wordpressAgent "this is for test"
+            '''
+        }
+    }
     stage('Pre Build') {
       parallel {
         stage('Print Info') {
           steps {
             sh '''
             node --version
-            echo wordpressAgent "Hamid Behnam, HamiDev"
             ls'''
           }
         }
