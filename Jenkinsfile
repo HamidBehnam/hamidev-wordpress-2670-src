@@ -8,13 +8,7 @@ pipeline {
 
   }
   stages {
-    stage('shared lib test') {
-        steps {
-            sh'''
-            wordpressAgent "this is for test"
-            '''
-        }
-    }
+    wordpressAgent
     stage('Pre Build') {
       parallel {
         stage('Print Info') {
