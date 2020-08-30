@@ -1,3 +1,5 @@
+@Library('jenkins-shared-library') _
+
 pipeline {
   agent {
     docker {
@@ -10,8 +12,10 @@ pipeline {
       parallel {
         stage('Print Info') {
           steps {
-            sh '''node --version
-ls'''
+            sh '''
+            node --version
+            echo wordpressAgent "Hamid Behnam, HamiDev"
+            ls'''
           }
         }
 
